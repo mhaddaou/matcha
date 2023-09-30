@@ -13,7 +13,7 @@ const Config = {
     multipleStatements: true
 }
 
-const client = new Pool(Config)
+const client : Pool = new Pool(Config)
 
 
 export default client;

@@ -6,7 +6,7 @@ const createTables = async () =>{
     await client.connect().then(() =>{console.log('connection to database successfuly')});
     try{
         const user = fs.readFileSync('./schema.sql', 'utf-8').toString();
-        client.query(user).then(() =>{}).catch((err) =>{console.log(err.message)});
+        client.query(user).then(() =>{ client.end()}).catch((err) =>{console.log(err.message)});
 
     }catch(err: any){console.log(err.message + ' here')}
     
