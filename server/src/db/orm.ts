@@ -7,22 +7,25 @@ import client from './connectiondb';
 export class User {
     
     username: string;
-    gender: string;
+    gender: string ;
     sexualPreferences: string;
-    bio: string;
+    bio: string ;
     interesting: string[];
     email: string;
-    rating: string | null;
+    rating: string ;
+    password : string;
   
-    constructor({username, gender,sexualPreferences, bio, interesting, email, rating}: { username: string, gender: string, sexualPreferences: string, bio: string, interesting: string[], email: string, rating: string | null}) {
+    constructor({username,password, gender,sexualPreferences, bio, interesting, email, rating}: 
+        { username: string, gender?: string, sexualPreferences?: string, bio?: string, interesting?: string[], email: string, rating?: string , password : string}) {
       
       this.username = username;
-      this.gender = gender;
-      this.sexualPreferences = sexualPreferences;
-      this.bio = bio;
-      this.interesting = interesting;
+      this.gender = gender || '';
+      this.sexualPreferences = sexualPreferences || '';
+      this.bio = bio || '';
+      this.interesting = interesting || [];
       this.email = email;
-      this.rating  = rating ;
+      this.rating  = rating  || '';
+      this.password = password;
     }
   }
   
@@ -37,11 +40,12 @@ export default class Orm {
     }
    
     async save() : Promise<void>{
-        const query  = `INSERT INTO users (username, gender,sexualPreferences, bio, interesting, email, rating )
-            VALUES ($1, $2, $3, $4 ,$5, $6, $7);
+        const query  = `INSERT INTO users (username,password, gender,sexualPreferences, bio, interesting, email, rating )
+            VALUES ($1, $2, $3, $4 ,$5, $6, $7, $8);
         `
         const values = [
             this.user.username,
+            this.user.password,
             this.user.gender,
             this.user.sexualPreferences,
             this.user.bio,
