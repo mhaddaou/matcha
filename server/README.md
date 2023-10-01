@@ -1,7 +1,7 @@
 ## ORM
 - path : server/src/db/orm
 - both ModelUser and ORM inside same path
-# Create User
+# Create User // save()
 * to create a user just few steps
 - example
 ```console
