@@ -1,40 +1,28 @@
 {
-  "name": "backend",
+  "name": "server",
   "version": "1.0.0",
-  "description": "api for web app called matcha",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/server.ts",
-    "dev": "nodemon --exec ts-node src/server.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SaidM96/matcha_app.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -w & cp schema.sql dist/src/db/ &  nodemon dist/server.js"
   },
   "keywords": [],
-  "author": "said mia & mohammed mhaddaou",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SaidM96/matcha_app/issues"
-  },
-  "homepage": "https://github.com/SaidM96/matcha_app#readme",
-  "dependencies": {
-    "@types/cookie-parser": "^1.4.4",
+  "devDependencies": {
     "@types/cors": "^2.8.14",
-    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.18",
-    "@types/node": "^20.6.5",
     "@types/pg": "^8.10.3",
-    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "node": "^20.6.0",
+    "nodemon": "^3.0.1",
     "pg": "^8.11.3",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
-  "devDependencies": {
-    "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1"
+  "dependencies": {
+    "fs": "^0.0.1-security"
   }
 }
