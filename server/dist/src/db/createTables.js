@@ -41,7 +41,7 @@ const createTables = () => __awaiter(void 0, void 0, void 0, function* () {
     yield connectiondb_1.default.connect().then(() => { console.log('connection to database successfuly'); });
     try {
         const user = fs.readFileSync('./schema.sql', 'utf-8').toString();
-        connectiondb_1.default.query(user).then(() => { }).catch((err) => { console.log(err.message); });
+        connectiondb_1.default.query(user).then(() => { connectiondb_1.default.end(); }).catch((err) => { console.log(err.message); });
     }
     catch (err) {
         console.log(err.message + ' here');
